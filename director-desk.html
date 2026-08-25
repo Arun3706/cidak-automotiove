@@ -10,85 +10,126 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        body { font-family: 'Outfit', sans-serif; }
+        body { font-family: 'Outfit', sans-serif; background-color: #f8fafc; color: #0f172a; margin: 0; padding: 0; width: 100%; overflow-x: hidden; }
         .font-mono-tech { font-family: 'JetBrains Mono', monospace; }
-        .cidak-badge { background: #dc2626; color: #ffffff; padding: 3px 10px; border-radius: 4px; font-weight: 700; font-size: 11px; text-transform: uppercase; }
-        .cidak-header-top { background: #0f172a; color: #cbd5e1; padding: 8px 0; font-size: 13px; }
-        .btn-enquiry { background: #dc2626; color: #ffffff !important; border-radius: 8px; padding: 12px 24px; font-weight: 700; text-transform: uppercase; border: none; }
-        .page-banner { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: #ffffff; padding: 60px 0; text-align: center; }
+        @media (min-width: 1200px) { .container { width: 92% !important; max-width: 1480px !important; } }
+        .cidak-header-top { background: #0f172a; color: #cbd5e1; padding: 10px 0; font-size: 13px; border-bottom: 1px solid #1e293b; }
+        .top-bar-flex { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+        .top-bar-info { display: flex; align-items: center; gap: 25px; }
+        .top-bar-contact { display: flex; align-items: center; gap: 20px; }
+        .cidak-header-top a { color: #f8fafc; text-decoration: none; font-weight: 600; white-space: nowrap; }
+        .main-header { background: #ffffff; border-bottom: 1px solid #e2e8f0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04); position: sticky; top: 0; z-index: 1000; }
+        .nav-flex-wrapper { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
+        .logo-box img { max-height: 52px; width: auto; display: block; }
+        .cidak-nav-ul { display: flex; align-items: center; gap: 24px; list-style: none; margin: 0; padding: 0; }
+        .cidak-nav-ul > li { position: relative; }
+        .cidak-nav-ul > li > a { font-size: 14px; font-weight: 700; color: #0f172a; text-transform: uppercase; text-decoration: none; padding: 10px 0; display: inline-block; white-space: nowrap; }
+        .cidak-nav-ul > li > a:hover, .cidak-nav-ul > li.active > a { color: #dc2626; }
+        .cidak-dropdown-menu { position: absolute; top: 100%; left: 0; min-width: 260px; background: #ffffff; border-radius: 12px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; padding: 10px 0; list-style: none; opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.25s ease; z-index: 999; }
+        .cidak-nav-ul li.dropdown:hover .cidak-dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .cidak-dropdown-menu a { display: block; padding: 10px 20px; font-size: 13px; font-weight: 600; color: #334155; text-decoration: none; }
+        .btn-enquiry { background: #dc2626; color: #ffffff !important; border-radius: 8px; padding: 12px 24px; font-weight: 700; font-size: 13px; text-transform: uppercase; border: none; display: inline-block; text-decoration: none !important; cursor: pointer; white-space: nowrap; }
+        .cidak-badge { background: #dc2626; color: #ffffff; padding: 5px 14px; border-radius: 6px; font-weight: 700; font-size: 11px; text-transform: uppercase; }
+        .page-banner { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: #ffffff; padding: 75px 0; text-align: center; }
+        .director-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 20px; padding: 40px; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05); }
     </style>
 </head>
-<body class="boxed_wrapper">
+<body>
     <div class="cidak-header-top">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-8">
-                    <span><i class="fa fa-building-o" style="color:#ef4444;"></i> <strong>Head Office:</strong> Ascot HP22 5EN, United Kingdom</span>
+        <div class="container">
+            <div class="top-bar-flex">
+                <div class="top-bar-info">
+                    <span><i class="fa fa-building-o" style="color:#ef4444; margin-right: 6px;"></i> <strong>Head Office:</strong> Ascot HP22 5EN, United Kingdom</span>
+                    <span><i class="fa fa-cubes" style="color:#ef4444; margin-right: 6px;"></i> <strong>Logistics Hubs:</strong> UK • Slovenia • Bulgaria</span>
                 </div>
-                <div class="col-md-4 text-right">
-                    <a href="mailto:harvinder@cidakautoparts.com" style="color:#ffffff;"><i class="fa fa-envelope" style="color:#ef4444;"></i> harvinder@cidakautoparts.com</a>
+                <div class="top-bar-contact">
+                    <a href="mailto:harvinder@cidakautoparts.com"><i class="fa fa-envelope" style="color:#ef4444; margin-right: 6px;"></i> harvinder@cidakautoparts.com</a>
+                    <a href="tel:+447931522602"><i class="fa fa-phone" style="color:#ef4444; margin-right: 6px;"></i> +44 7931522602</a>
                 </div>
             </div>
         </div>
     </div>
+
     <header class="main-header">
-        <div class="theme_menu stricky">
-            <div class="container-fluid">
-                <div style="display: flex; align-items: center; justify-content: space-between;">
-                    <a href="index.html"><img src="./assets/images/logo.png" alt="CIDAK Logo" style="max-height: 48px;"></a>
-                    <nav class="main-menu">
-                        <ul class="navigation clearfix">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="who-we-are.html">Who We Are</a></li>
-                            <li><a href="our-mission.html">Our Mission</a></li>
-                            <li><a href="our-vision.html">Our Vision</a></li>
-                            <li class="current"><a href="director-desk.html">Director Desk</a></li>
-                            <li><a href="products.html">Products</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                        </ul>
-                    </nav>
-                    <button onclick="alert('Inquiry form initialized')" class="btn-enquiry">Wholesale Inquiry</button>
+        <div class="container">
+            <div class="nav-flex-wrapper">
+                <div class="logo-box">
+                    <a href="index.html"><img src="./assets/images/logo.png" alt="CIDAK Logo"></a>
+                </div>
+                <nav class="hidden-xs hidden-sm">
+                    <ul class="cidak-nav-ul">
+                        <li><a href="index.html">Home</a></li>
+                        <li class="dropdown active">
+                            <a href="about.html">About Us <i class="fa fa-angle-down" style="margin-left: 4px;"></i></a>
+                            <ul class="cidak-dropdown-menu">
+                                <li><a href="about.html">Company Overview</a></li>
+                                <li><a href="who-we-are.html">Who We Are</a></li>
+                                <li><a href="our-mission.html">Our Mission</a></li>
+                                <li><a href="our-vision.html">Our Vision</a></li>
+                                <li><a href="director-desk.html">Director Desk</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="products.html">Products <i class="fa fa-angle-down" style="margin-left: 4px;"></i></a>
+                            <ul class="cidak-dropdown-menu">
+                                <li><a href="category.html?cat=brake-pads">Brake Pads (ECE R90 / Copper Free)</a></li>
+                                <li><a href="category.html?cat=brake-discs">Brake Discs (Silver Coated)</a></li>
+                                <li><a href="category.html?cat=filters">Filters (Air, Oil, Fuel, Cabin)</a></li>
+                                <li><a href="category.html?cat=steering-suspension">Steering &amp; Suspension</a></li>
+                                <li><a href="category.html?cat=under-development">Range Under Development</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="quality-warranty.html">Quality &amp; 3-Yr Warranty</a></li>
+                        <li><a href="locations.html">3PL Warehouses</a></li>
+                        <li><a href="contact.html">Contact &amp; Inquiry</a></li>
+                    </ul>
+                </nav>
+                <div>
+                    <button onclick="alert('Inquiry logged')" class="btn-enquiry"><i class="fa fa-paper-plane" style="margin-right: 6px;"></i> Wholesale Inquiry</button>
                 </div>
             </div>
         </div>
     </header>
+
     <div class="page-banner">
         <div class="container">
-            <span class="cidak-badge">Leadership</span>
-            <h1 style="font-size: 38px; font-weight: 900; margin-top: 10px;">Executive Director Desk</h1>
-            <p style="color: #94a3b8;">Directives from Harvinder Handa &amp; Dr Sukh Handa</p>
+            <span class="cidak-badge">Executive Board Message</span>
+            <h1 style="font-size: 42px; font-weight: 900; margin-top: 12px; text-transform: uppercase;">From The Director's Desk</h1>
+            <p style="color: #cbd5e1; font-size: 16px; max-width: 720px; margin: 10px auto 0;">Commercial Strategy and Operational Leadership at CIDAK AUTO PARTS LTD.</p>
         </div>
     </div>
-    <section style="padding: 80px 0;">
+
+    <section style="padding: 80px 0; background: #ffffff;">
         <div class="container">
             <div class="row">
                 <div class="col-md-6" style="margin-bottom: 30px;">
-                    <div style="padding: 30px; background: #ffffff; border-radius: 16px; border: 1px solid #e2e8f0; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);">
+                    <div class="director-card">
+                        <img src="./assets/images/director_harvinder.jpg" alt="Harvinder Handa" style="width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 3px solid #dc2626; margin-bottom: 20px;">
                         <span class="cidak-badge">Commercial Leadership</span>
-                        <h3 style="font-size: 24px; font-weight: 900; color: #0f172a; margin: 15px 0 5px;">Harvinder Handa</h3>
-                        <p style="color: #ef4444; font-weight: 700; font-size: 13px; margin-bottom: 15px;" class="font-mono-tech">Commercial Director</p>
-                        <blockquote style="font-size: 14px; color: #475569; border-left: 3px solid #ef4444; padding-left: 15px; font-style: italic; margin-bottom: 15px;">
-                            "At CIDAK, our priority is building long-term, highly profitable relationships with our wholesale partners. We engineer products that match OE benchmarks while maintaining competitive pricing structures."
-                        </blockquote>
-                        <p style="font-size: 13px; color: #64748b;"><i class="fa fa-envelope" style="color: #ef4444;"></i> harvinder@cidakautoparts.com</p>
+                        <h3 style="font-size: 26px; font-weight: 900; color: #0f172a; margin: 12px 0 6px;">Harvinder Handa</h3>
+                        <p style="color: #ef4444; font-weight: 700; margin-bottom: 20px;" class="font-mono-tech">Commercial Director</p>
+                        <p style="font-size: 15px; color: #475569; line-height: 1.8;">
+                            "Our focus is delivering tangible commercial benefits to our international distributor partners. By maintaining strict OE standards and offering competitive B2B contract terms, CIDAK builds long-term, mutually beneficial relationships."
+                        </p>
                     </div>
                 </div>
 
                 <div class="col-md-6" style="margin-bottom: 30px;">
-                    <div style="padding: 30px; background: #ffffff; border-radius: 16px; border: 1px solid #e2e8f0; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);">
-                        <span class="cidak-badge">Operational Excellence</span>
-                        <h3 style="font-size: 24px; font-weight: 900; color: #0f172a; margin: 15px 0 5px;">Dr Sukh Handa</h3>
-                        <p style="color: #ef4444; font-weight: 700; font-size: 13px; margin-bottom: 15px;" class="font-mono-tech">Operational Director</p>
-                        <blockquote style="font-size: 14px; color: #475569; border-left: 3px solid #ef4444; padding-left: 15px; font-style: italic; margin-bottom: 15px;">
-                            "Quality is not negotiable at CIDAK. Every batch of brake pads, discs, and filters undergoes 100% rigorous testing before leaving our European logistics hubs."
-                        </blockquote>
-                        <p style="font-size: 13px; color: #64748b;"><i class="fa fa-phone" style="color: #ef4444;"></i> +44 7931522602</p>
+                    <div class="director-card">
+                        <img src="./assets/images/director_sukh.jpg" alt="Dr Sukh Handa" style="width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 3px solid #0f172a; margin-bottom: 20px;">
+                        <span class="cidak-badge" style="background: #0f172a;">Operational Excellence</span>
+                        <h3 style="font-size: 26px; font-weight: 900; color: #0f172a; margin: 12px 0 6px;">Dr Sukh Handa</h3>
+                        <p style="color: #0f172a; font-weight: 700; margin-bottom: 20px;" class="font-mono-tech">Operational Director</p>
+                        <p style="font-size: 15px; color: #475569; line-height: 1.8;">
+                            "Operational integrity and product engineering are the backbone of CIDAK. From raw material spectroscopy to 3PL logistics dispatch in UK, Slovenia, and Bulgaria, we ensure every part meets matching OE tolerances."
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <footer style="background: #0f172a; color: #94a3b8; padding: 40px 0 20px;" class="text-center font-mono-tech">
+
+    <footer style="background: #0f172a; color: #94a3b8; padding: 50px 0 20px;" class="text-center font-mono-tech">
         &copy; 2026 CIDAK AUTO PARTS LTD. All Rights Reserved. | Ascot HP22 5EN, United Kingdom
     </footer>
 </body>

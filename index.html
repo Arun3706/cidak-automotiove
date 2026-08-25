@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style>
-        /* Modern Full-Width Corporate Container System */
+        /* Modern Full-Width Corporate Design System */
         body {
             font-family: 'Outfit', sans-serif;
             background-color: #f8fafc;
@@ -35,7 +35,6 @@
             font-family: 'JetBrains Mono', monospace;
         }
 
-        /* Override Bootstrap 1170px squeezer for full-width widescreen layout */
         @media (min-width: 1200px) {
             .container {
                 width: 92% !important;
@@ -105,7 +104,7 @@
             display: block;
         }
 
-        /* Navigation Links (No wrapping) */
+        /* Navigation Links */
         .cidak-nav-ul {
             display: flex;
             align-items: center;
@@ -148,7 +147,7 @@
             position: absolute;
             top: 100%;
             left: 0;
-            min-width: 250px;
+            min-width: 260px;
             background: #ffffff;
             border-radius: 12px;
             box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
@@ -202,7 +201,7 @@
         }
 
         .btn-secondary-cidak {
-            background: rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.12);
             color: #ffffff !important;
             border-radius: 8px;
             padding: 12px 24px;
@@ -211,14 +210,14 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
             transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.25);
             display: inline-block;
             text-decoration: none !important;
             white-space: nowrap;
         }
 
         .btn-secondary-cidak:hover {
-            background: rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.22);
             border-color: rgba(255,255,255,0.4);
         }
 
@@ -246,14 +245,47 @@
             display: inline-block;
         }
 
-        /* Full-Width Hero Section */
-        .hero-banner-cidak {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: #ffffff;
-            padding: 90px 0;
+        /* 3-Hero Slider Carousel Styling */
+        .hero-slider-container {
             position: relative;
+            background: #0f172a;
+            color: #ffffff;
             overflow: hidden;
+            min-height: 560px;
+        }
+
+        .hero-slide {
+            display: none;
+            padding: 90px 0;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            min-height: 560px;
+        }
+
+        .hero-slide.active {
+            display: block;
+            animation: fadeInSlide 0.6s ease-in-out forwards;
+        }
+
+        .hero-slide-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(30, 41, 59, 0.85) 100%);
+            z-index: 1;
+        }
+
+        .hero-slide-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes fadeInSlide {
+            from { opacity: 0; transform: scale(1.02); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         .hero-banner-cidak h1 {
@@ -270,7 +302,7 @@
             color: #cbd5e1 !important;
             font-size: 17px;
             margin-bottom: 35px;
-            line-height: 1.6;
+            line-height: 1.65;
             max-width: 680px;
         }
 
@@ -282,6 +314,60 @@
             border: 3px solid rgba(255, 255, 255, 0.15);
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
         }
+
+        /* Slider Controls */
+        .slider-controls {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: flex;
+            gap: 12px;
+        }
+
+        .slider-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            border: 2px solid #ffffff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .slider-dot.active {
+            background: #dc2626;
+            border-color: #dc2626;
+            width: 36px;
+            border-radius: 8px;
+        }
+
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            background: rgba(15, 23, 42, 0.7);
+            color: #ffffff;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .slider-arrow:hover {
+            background: #dc2626;
+            border-color: #dc2626;
+        }
+
+        .slider-arrow.prev { left: 30px; }
+        .slider-arrow.next { right: 30px; }
 
         /* Full-Width Product Cards Grid */
         .product-card-cidak {
@@ -361,7 +447,7 @@
 
 <body>
 
-    <!-- Top Corporate Header Bar (Full Width Flex) -->
+    <!-- Top Corporate Header Bar -->
     <div class="cidak-header-top">
         <div class="container">
             <div class="top-bar-flex">
@@ -377,7 +463,7 @@
         </div>
     </div>
 
-    <!-- Main Navigation Header (Full Width Responsive) -->
+    <!-- Main Navigation Header -->
     <header class="main-header">
         <div class="container">
             <div class="nav-flex-wrapper">
@@ -407,7 +493,7 @@
                             <ul class="cidak-dropdown-menu">
                                 <li><a href="category.html?cat=brake-pads">Brake Pads (ECE R90 / Copper Free)</a></li>
                                 <li><a href="category.html?cat=brake-discs">Brake Discs (Silver Coated)</a></li>
-                                <li><a href="category.html?cat=filters">Filters (Air, Oil, Fuel, Cabin)</a></li>
+                                <li><a href="category.html?cat=filters">Filters (Air, Oil, Fuel, Cabin, Carbon)</a></li>
                                 <li><a href="category.html?cat=steering-suspension">Steering &amp; Suspension</a></li>
                                 <li><a href="category.html?cat=under-development">Range Under Development</a></li>
                             </ul>
@@ -426,33 +512,160 @@
         </div>
     </header>
 
-    <!-- Main Hero Slider / Banner Section (Full Width Expansive) -->
-    <section class="hero-banner-cidak">
-        <div class="container">
-            <div class="row" style="display: flex; align-items: center; flex-wrap: wrap;">
-                <div class="col-md-7 col-sm-12" style="margin-bottom: 30px;">
-                    <span class="cidak-badge" style="margin-bottom: 20px;">3 Years or 60,000 KMs No Quibble Warranty</span>
-                    <h1>
-                        PRECISION AUTOMOTIVE <br><span style="color: #ef4444;">FRICTION &amp; FILTRATION</span> SOLUTIONS
-                    </h1>
-                    <p>
-                        CIDAK AUTO PARTS LTD is a premier UK-based automotive replacement parts distributor delivering matching OE quality brake components, filters, and steering &amp; suspension to international wholesalers.
-                    </p>
-                    <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-                        <button onclick="openEnquiryModal()" class="btn-enquiry"><i class="fa fa-download" style="margin-right: 6px;"></i> Request Wholesale Catalog</button>
-                        <a href="products.html" class="btn-secondary-cidak">Explore Product Range →</a>
+    <!-- 3-Hero Slider Carousel Section -->
+    <div class="hero-slider-container hero-banner-cidak">
+        <!-- Next & Prev Controls -->
+        <div class="slider-arrow prev" onclick="changeSlide(-1)"><i class="fa fa-angle-left"></i></div>
+        <div class="slider-arrow next" onclick="changeSlide(1)"><i class="fa fa-angle-right"></i></div>
+
+        <!-- Dots -->
+        <div class="slider-controls">
+            <div class="slider-dot active" onclick="setSlide(0)"></div>
+            <div class="slider-dot" onclick="setSlide(1)"></div>
+            <div class="slider-dot" onclick="setSlide(2)"></div>
+        </div>
+
+        <!-- Slide 1: Safe & Noise Free Braking (Brake Pads) -->
+        <div class="hero-slide active" style="background-image: url('./assets/images/hero_slide_2.jpg');">
+            <div class="hero-slide-overlay"></div>
+            <div class="container hero-slide-content">
+                <div class="row" style="display: flex; align-items: center; flex-wrap: wrap;">
+                    <div class="col-md-7 col-sm-12" style="margin-bottom: 30px;">
+                        <span class="cidak-badge" style="margin-bottom: 20px;">ECE R90 Approved • 100% Copper Free</span>
+                        <h1>
+                            SAFE &amp; NOISE-FREE <br><span style="color: #ef4444;">BRAKING PERFORMANCE</span>
+                        </h1>
+                        <p>
+                            CIDAK brake pads offer consistent braking performance with ECE R90 approval (+/- 15% OE performance), RMR anti-noise shims, and 100% copper-free ceramic and semi-metallic friction formulations.
+                        </p>
+                        <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                            <button onclick="openEnquiryModal('Brake Pads')" class="btn-enquiry"><i class="fa fa-download" style="margin-right: 6px;"></i> Request Brake Pad Catalog</button>
+                            <a href="category.html?cat=brake-pads" class="btn-secondary-cidak">Explore Friction Range →</a>
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-sm-12">
+                        <div class="hero-img-box">
+                            <img src="./assets/images/hero_banner_2.jpg" alt="CIDAK Brake Pads">
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-5 col-sm-12">
-                    <div class="hero-img-box">
-                        <img src="./assets/images/hero_banner_2.jpg" alt="CIDAK Brake Pads">
+            </div>
+        </div>
+
+        <!-- Slide 2: High-Efficiency Automotive Filtration -->
+        <div class="hero-slide" style="background-image: url('./assets/images/hero_slide_1.jpg');">
+            <div class="hero-slide-overlay"></div>
+            <div class="container hero-slide-content">
+                <div class="row" style="display: flex; align-items: center; flex-wrap: wrap;">
+                    <div class="col-md-7 col-sm-12" style="margin-bottom: 30px;">
+                        <span class="cidak-badge" style="margin-bottom: 20px;">5 Comprehensive Filter Ranges</span>
+                        <h1>
+                            HIGH-EFFICIENCY <br><span style="color: #ef4444;">AUTOMOTIVE FILTRATION</span>
+                        </h1>
+                        <p>
+                            Protecting engines with synthetic micro-media. Full coverage of Air, Oil, Fuel, Cabin, and Activated Bio-Carbon filters manufactured to strict original part standards.
+                        </p>
+                        <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                            <button onclick="openEnquiryModal('Automotive Filters')" class="btn-enquiry"><i class="fa fa-download" style="margin-right: 6px;"></i> Request Filter Catalog</button>
+                            <a href="category.html?cat=filters" class="btn-secondary-cidak">Explore Filtration Lines →</a>
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-sm-12">
+                        <div class="hero-img-box">
+                            <img src="./assets/images/air_filter.jpg" alt="CIDAK Automotive Filters">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Precision Steering & Suspension -->
+        <div class="hero-slide" style="background-image: url('./assets/images/hero_slide_3.jpg');">
+            <div class="hero-slide-overlay"></div>
+            <div class="container hero-slide-content">
+                <div class="row" style="display: flex; align-items: center; flex-wrap: wrap;">
+                    <div class="col-md-7 col-sm-12" style="margin-bottom: 30px;">
+                        <span class="cidak-badge" style="margin-bottom: 20px;">CNC Turned &amp; 240h+ Salt Spray Tested</span>
+                        <h1>
+                            PRECISION STEERING &amp; <br><span style="color: #ef4444;">SUSPENSION COMPONENTS</span>
+                        </h1>
+                        <p>
+                            Safety-critical Control Arms, Ball Joints, Stabilizer Links, Bushes, Tie Rods, and Suspension Kits engineered with CNC multi-axis turning, robotics, and anti-corrosion protection.
+                        </p>
+                        <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                            <button onclick="openEnquiryModal('Steering & Suspension')" class="btn-enquiry"><i class="fa fa-download" style="margin-right: 6px;"></i> Request Steering Catalog</button>
+                            <a href="category.html?cat=steering-suspension" class="btn-secondary-cidak">Explore Chassis Lines →</a>
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-sm-12">
+                        <div class="hero-img-box">
+                            <img src="./assets/images/steering_suspension.jpg" alt="CIDAK Steering & Suspension">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CIDAK What We Offer Section (From Document Copy) -->
+    <section style="padding: 70px 0; background: #ffffff; border-bottom: 1px solid #e2e8f0;">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 40px;">
+                <span style="color: #ef4444; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 12px;" class="font-mono-tech">Commercial Partnership</span>
+                <h2 style="font-size: 38px; font-weight: 900; color: #0f172a; margin-top: 6px;">WHAT WE OFFER TO WHOLESALERS &amp; DISTRIBUTORS</h2>
+                <p style="color: #64748b; max-width: 760px; margin: 0 auto; font-size: 15px; line-height: 1.6;">
+                    "We aim to offer CIDAK branded aftermarket parts at very competitive prices and premium quality. Our partnership approach allows us and our partners to continue growing together and enjoying commercial benefits for the long term."
+                </p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 col-sm-6" style="margin-bottom: 25px;">
+                    <div style="padding: 28px; background: #f8fafc; border-radius: 16px; border: 1px solid #e2e8f0; height: 100%;">
+                        <i class="fa fa-star" style="font-size: 30px; color: #ef4444; margin-bottom: 14px;"></i>
+                        <h4 style="font-weight: 800; color: #0f172a; margin-bottom: 8px;">Premium Quality</h4>
+                        <p style="font-size: 13px; color: #64748b; line-height: 1.6;">Designed and produced in high standards manufacturing facilities under strict quality control.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6" style="margin-bottom: 25px;">
+                    <div style="padding: 28px; background: #f8fafc; border-radius: 16px; border: 1px solid #e2e8f0; height: 100%;">
+                        <i class="fa fa-tags" style="font-size: 30px; color: #ef4444; margin-bottom: 14px;"></i>
+                        <h4 style="font-weight: 800; color: #0f172a; margin-bottom: 8px;">Competitive Pricing</h4>
+                        <p style="font-size: 13px; color: #64748b; line-height: 1.6;">B2B volume quote structures allowing distributors maximum commercial margin.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6" style="margin-bottom: 25px;">
+                    <div style="padding: 28px; background: #f8fafc; border-radius: 16px; border: 1px solid #e2e8f0; height: 100%;">
+                        <i class="fa fa-cubes" style="font-size: 30px; color: #ef4444; margin-bottom: 14px;"></i>
+                        <h4 style="font-weight: 800; color: #0f172a; margin-bottom: 8px;">Extended Range</h4>
+                        <p style="font-size: 13px; color: #64748b; line-height: 1.6;">Comprehensive part numbers covering European passenger cars and light commercial vehicles.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6" style="margin-bottom: 25px;">
+                    <div style="padding: 28px; background: #f8fafc; border-radius: 16px; border: 1px solid #e2e8f0; height: 100%;">
+                        <i class="fa fa-database" style="font-size: 30px; color: #ef4444; margin-bottom: 14px;"></i>
+                        <h4 style="font-weight: 800; color: #0f172a; margin-bottom: 8px;">High Stock Availability</h4>
+                        <p style="font-size: 13px; color: #64748b; line-height: 1.6;">Strategically stocked 3PL warehouses in UK, Slovenia, and Bulgaria for fast fulfillment.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6" style="margin-bottom: 25px;">
+                    <div style="padding: 28px; background: #f8fafc; border-radius: 16px; border: 1px solid #e2e8f0; height: 100%;">
+                        <i class="fa fa-user-circle-o" style="font-size: 30px; color: #ef4444; margin-bottom: 14px;"></i>
+                        <h4 style="font-weight: 800; color: #0f172a; margin-bottom: 8px;">Excellent Customer Service</h4>
+                        <p style="font-size: 13px; color: #64748b; line-height: 1.6;">Dedicated commercial account managers providing seamless order coordination.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6" style="margin-bottom: 25px;">
+                    <div style="padding: 28px; background: #f8fafc; border-radius: 16px; border: 1px solid #e2e8f0; height: 100%;">
+                        <i class="fa fa-wrench" style="font-size: 30px; color: #ef4444; margin-bottom: 14px;"></i>
+                        <h4 style="font-weight: 800; color: #0f172a; margin-bottom: 8px;">Excellent Technical Support</h4>
+                        <p style="font-size: 13px; color: #64748b; line-height: 1.6;">Complete OE cross-reference data, WVA technical sheets, and fitment guidance.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CIDAK Core Product Range Showcase (Full Width Grid - No Prices) -->
+    <!-- CIDAK Core Product Range Showcase (Enquiry Based - No Prices) -->
     <section style="padding: 90px 0; background: #f8fafc;">
         <div class="container">
             <div class="text-center" style="margin-bottom: 60px;">
@@ -473,7 +686,7 @@
                                 <span class="no-price-badge font-mono-tech">ECE R90 Certified • Copper Free</span>
                                 <h3 style="font-size: 22px; font-weight: 800; margin: 15px 0 10px; color: #0f172a;">Brake Pads</h3>
                                 <p style="font-size: 14px; color: #64748b; line-height: 1.6; margin-bottom: 20px;">
-                                    Manufactured to matching OE quality. ECE R90 approved, copper-free ceramic and semi-metallic friction formulations with noise reduction RMR shims.
+                                    ECE R90 approved brake pads featuring raw material compound blends (ceramic &amp; semi-metallic), RMR anti-noise shims, and 100% Copper Free EPA compliance.
                                 </p>
                             </div>
                             <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 18px; margin-top: 10px;">
@@ -493,7 +706,7 @@
                                 <span class="no-price-badge font-mono-tech">Silver Coated • Ready To Fit</span>
                                 <h3 style="font-size: 22px; font-weight: 800; margin: 15px 0 10px; color: #0f172a;">Brake Discs</h3>
                                 <p style="font-size: 14px; color: #64748b; line-height: 1.6; margin-bottom: 20px;">
-                                    Premium high carbon brake rotors featuring protective silver anti-corrosion coating. No de-greasing required before fitting. ECE R90 certified.
+                                    High-carbon grey iron rotors with protective silver anti-corrosion coating. CNC machined for parallel DTV tolerance. No dirt/oil removal needed before fitting.
                                 </p>
                             </div>
                             <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 18px; margin-top: 10px;">
@@ -513,7 +726,7 @@
                                 <span class="no-price-badge font-mono-tech">5 Filter Ranges • OE Media</span>
                                 <h3 style="font-size: 22px; font-weight: 800; margin: 15px 0 10px; color: #0f172a;">Automotive Filters</h3>
                                 <p style="font-size: 14px; color: #64748b; line-height: 1.6; margin-bottom: 20px;">
-                                    High efficiency Air, Oil, Fuel, Cabin, and Activated Bio-Carbon filters. Synthetic micro-media providing maximum particle trapping and engine protection.
+                                    Air, Oil, Fuel, Cabin, and Activated Bio-Carbon filters. Precise pleats for optimal airflow, pressure-tested metal and ecological oil filters, and high-purity cabin media.
                                 </p>
                             </div>
                             <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 18px; margin-top: 10px;">
@@ -533,7 +746,7 @@
                                 <span class="no-price-badge font-mono-tech">Robotics &amp; CNC Machined</span>
                                 <h3 style="font-size: 22px; font-weight: 800; margin: 15px 0 10px; color: #0f172a;">Steering &amp; Suspension</h3>
                                 <p style="font-size: 14px; color: #64748b; line-height: 1.6; margin-bottom: 20px;">
-                                    Safety-critical control arms, wishbones, ball joints, tie rod ends, and stabilizer links. Precision CNC turned with 240h+ salt spray anti-corrosion coating.
+                                    Safety-critical Control Arms, Ball Joints, Stabilizer Links, Bushes, Tie Rods, and Suspension Kits. CNC turned, robotics assembly, and salt spray anti-corrosion painted.
                                 </p>
                             </div>
                             <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 18px; margin-top: 10px;">
@@ -553,7 +766,7 @@
                                 <span class="no-price-badge font-mono-tech">Expansion Roadmap</span>
                                 <h3 style="font-size: 22px; font-weight: 800; margin: 15px 0 10px; color: #0f172a;">Range Under Development</h3>
                                 <p style="font-size: 14px; color: #64748b; line-height: 1.6; margin-bottom: 20px;">
-                                    Upcoming expansion lines: Water Pumps, Clutch Kits, Shock Absorbers, and Wheel Hub Bearing Units undergoing rigorous vehicle dyno validation.
+                                    Upcoming expansion lines: Water Pumps, Clutch Kits, Shock Absorbers, and Wheel Hub Bearing Units undergoing rigorous vehicle dyno and bench validation.
                                 </p>
                             </div>
                             <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 18px; margin-top: 10px;">
@@ -585,39 +798,6 @@
         </div>
     </section>
 
-    <!-- 3 Corporate Value Pillars Section -->
-    <section style="padding: 90px 0; background: #ffffff;">
-        <div class="container">
-            <div class="text-center" style="margin-bottom: 60px;">
-                <span style="color: #ef4444; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 12px;" class="font-mono-tech">Our Commitment</span>
-                <h2 style="font-size: 40px; font-weight: 900; color: #0f172a; margin-top: 8px; text-transform: uppercase;">What We Offer to Wholesalers</h2>
-            </div>
-            <div class="row">
-                <div class="col-md-4 col-sm-6" style="margin-bottom: 30px;">
-                    <div style="padding: 36px 30px; background: #f8fafc; border-radius: 18px; border: 1px solid #e2e8f0; height: 100%;">
-                        <i class="fa fa-shield" style="font-size: 36px; color: #ef4444; margin-bottom: 18px;"></i>
-                        <h4 style="font-weight: 800; color: #0f172a; margin-bottom: 12px; font-size: 20px;">Matching OE Quality</h4>
-                        <p style="font-size: 14px; color: #64748b; line-height: 1.7;">Precision engineered using OE grade materials, strict manufacturing tolerances, and full vehicle compatibility guarantee.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6" style="margin-bottom: 30px;">
-                    <div style="padding: 36px 30px; background: #f8fafc; border-radius: 18px; border: 1px solid #e2e8f0; height: 100%;">
-                        <i class="fa fa-certificate" style="font-size: 36px; color: #ef4444; margin-bottom: 18px;"></i>
-                        <h4 style="font-weight: 800; color: #0f172a; margin-bottom: 12px; font-size: 20px;">3-Yr / 60,000 KM Warranty</h4>
-                        <p style="font-size: 14px; color: #64748b; line-height: 1.7;">Full replacement backing on all manufactured lines for complete commercial peace of mind for international distributors.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6" style="margin-bottom: 30px;">
-                    <div style="padding: 36px 30px; background: #f8fafc; border-radius: 18px; border: 1px solid #e2e8f0; height: 100%;">
-                        <i class="fa fa-truck" style="font-size: 36px; color: #ef4444; margin-bottom: 18px;"></i>
-                        <h4 style="font-weight: 800; color: #0f172a; margin-bottom: 12px; font-size: 20px;">European 3PL Network</h4>
-                        <p style="font-size: 14px; color: #64748b; line-height: 1.7;">Strategic logistics centers in the UK, Slovenia, and Bulgaria ensuring rapid pallet and container dispatches across Europe.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Global Full-Width Footer -->
     <footer style="background: #0f172a; color: #94a3b8; padding: 70px 0 30px; border-top: 1px solid #1e293b;">
         <div class="container">
@@ -625,7 +805,7 @@
                 <div class="col-md-4 col-sm-12" style="margin-bottom: 35px;">
                     <img src="./assets/images/logo.png" alt="CIDAK Logo" style="max-height: 52px; margin-bottom: 24px;">
                     <p style="font-size: 14px; line-height: 1.8; color: #cbd5e1; max-width: 360px;">
-                        CIDAK AUTO PARTS LTD is a premier UK distributor of high-performance replacement automotive friction, filtration, and steering components.
+                        CIDAK AUTO PARTS LTD is an independent leading company in United Kingdom and Europe, distributing aftermarket automotive spare parts to wholesalers and distributors worldwide.
                     </p>
                     <p style="font-size: 13px; color: #ef4444; font-weight: 700; margin-top: 15px;" class="font-mono-tech">
                         Ascot HP22 5EN, United Kingdom
@@ -699,12 +879,41 @@
         </div>
     </div>
 
-    <!-- Scripts -->
+    <!-- Scripts & 3-Slide Hero Carousel Script -->
     <script src="./assets/js/jquery.min.js"></script>
     <script src="./assets/js/bootstrap.min.js"></script>
     <script src="./assets/js/owl.carousel.min.js"></script>
     <script src="./assets/js/script.js"></script>
     <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.hero-slide');
+        const dots = document.querySelectorAll('.slider-dot');
+        let slideInterval = setInterval(nextSlide, 6000);
+
+        function showSlide(n) {
+            slides.forEach(s => s.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function changeSlide(direction) {
+            clearInterval(slideInterval);
+            showSlide(currentSlide + direction);
+            slideInterval = setInterval(nextSlide, 6000);
+        }
+
+        function setSlide(index) {
+            clearInterval(slideInterval);
+            showSlide(index);
+            slideInterval = setInterval(nextSlide, 6000);
+        }
+
         function openEnquiryModal(categoryName) {
             if (categoryName) {
                 document.getElementById('modalSubject').innerText = 'Request Inquiry for ' + categoryName;
@@ -713,14 +922,17 @@
             }
             document.getElementById('enquiryModal').style.display = 'block';
         }
+
         function closeEnquiryModal() {
             document.getElementById('enquiryModal').style.display = 'none';
         }
+
         function handleFormSubmit(e) {
             e.preventDefault();
             alert('Thank you for your inquiry! CIDAK commercial team (harvinder@cidakautoparts.com) will contact you within 24 hours.');
             closeEnquiryModal();
         }
+
         window.onclick = function (event) {
             const modal = document.getElementById('enquiryModal');
             if (event.target == modal) {
