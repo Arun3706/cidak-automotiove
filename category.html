@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dedicated Category Page | CIDAK AUTO PARTS LTD</title>
+    <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./assets/css/style.css" rel="stylesheet">
+    <link href="./assets/css/responsive.css" rel="stylesheet">
+    <link href="./assets/css/fontello.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body { font-family: 'Outfit', sans-serif; }
+        .font-mono-tech { font-family: 'JetBrains Mono', monospace; }
+        .cidak-badge { background: #dc2626; color: #ffffff; padding: 3px 10px; border-radius: 4px; font-weight: 700; font-size: 11px; text-transform: uppercase; }
+        .cidak-header-top { background: #0f172a; color: #cbd5e1; padding: 8px 0; font-size: 13px; }
+        .btn-enquiry { background: #dc2626; color: #ffffff !important; border-radius: 8px; padding: 12px 24px; font-weight: 700; text-transform: uppercase; border: none; }
+        .page-banner { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: #ffffff; padding: 50px 0; }
+        .spec-box { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 15px; margin-bottom: 10px; display: flex; justify-content: space-between; }
+    </style>
+</head>
+<body class="boxed_wrapper">
+    <div class="cidak-header-top">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8">
+                    <span><i class="fa fa-building-o" style="color:#ef4444;"></i> <strong>Head Office:</strong> Ascot HP22 5EN, United Kingdom</span>
+                </div>
+                <div class="col-md-4 text-right">
+                    <a href="mailto:harvinder@cidakautoparts.com" style="color:#ffffff;"><i class="fa fa-envelope" style="color:#ef4444;"></i> harvinder@cidakautoparts.com</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <header class="main-header">
+        <div class="theme_menu stricky">
+            <div class="container-fluid">
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <a href="index.html"><img src="./assets/images/logo.png" alt="CIDAK Logo" style="max-height: 48px;"></a>
+                    <nav class="main-menu">
+                        <ul class="navigation clearfix">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li class="current"><a href="products.html">Products</a></li>
+                            <li><a href="quality-warranty.html">Quality &amp; Warranty</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </nav>
+                    <button onclick="alert('Inquiry form initialized')" class="btn-enquiry">Wholesale Inquiry</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-banner">
+        <div class="container">
+            <span class="cidak-badge" id="catBadge">Dedicated Category View</span>
+            <h1 style="font-size: 36px; font-weight: 900; margin-top: 10px;" id="catTitle">Brake Pads Specification Page</h1>
+            <p style="color: #94a3b8;" id="catSubtitle">Matching OE Standards • 3 Years / 60,000 KM Warranty</p>
+        </div>
+    </div>
+
+    <!-- Category Specifications Content (NO Pill Tabs) -->
+    <section style="padding: 60px 0; background: #ffffff;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <h2 style="font-size: 28px; font-weight: 900; color: #0f172a; margin-bottom: 15px;" id="catHeadline">CIDAK High Performance Friction Formula</h2>
+                    <div style="background: #f8fafc; border-left: 4px solid #dc2626; padding: 20px; border-radius: 8px; font-weight: 600; color: #334155; margin-bottom: 25px;" id="catIntro">
+                        Engineered for zero fade and quiet braking. Certified to ECE R90 (E-Marked) guidelines across European vehicle applications.
+                    </div>
+
+                    <h4 style="font-weight: 800; color: #0f172a; margin-bottom: 15px;">Technical Specifications</h4>
+                    <div class="spec-box">
+                        <span style="color: #64748b;">Certification:</span>
+                        <strong class="font-mono-tech" style="color: #0f172a;">ECE R90 (E-Marked) Approved</strong>
+                    </div>
+                    <div class="spec-box">
+                        <span style="color: #64748b;">Material Formulation:</span>
+                        <strong class="font-mono-tech" style="color: #0f172a;">100% Copper Free Ceramic &amp; Semi-Metallic</strong>
+                    </div>
+                    <div class="spec-box">
+                        <span style="color: #64748b;">Anti-Noise Dampening:</span>
+                        <strong class="font-mono-tech" style="color: #0f172a;">Multi-Layered Rubber-Metal-Rubber (RMR) Shim</strong>
+                    </div>
+                    <div class="spec-box">
+                        <span style="color: #64748b;">Thermal Scorching:</span>
+                        <strong class="font-mono-tech" style="color: #0f172a;">650°C High Temperature Scorched</strong>
+                    </div>
+
+                    <div style="margin-top: 30px;">
+                        <a href="product-detailed.html?cat=brake-pads" class="btn-enquiry" style="margin-right: 15px;">Open Part Detailed View →</a>
+                        <button onclick="alert('Inquiry initialized')" class="btn-enquiry" style="background: #0f172a;">Request Wholesale Pricing</button>
+                    </div>
+                </div>
+
+                <div class="col-md-5">
+                    <img src="./assets/images/hero_banner_2.jpg" id="catImage" alt="Category Image" style="width: 100%; border-radius: 16px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background: #0f172a; color: #94a3b8; padding: 40px 0 20px;" class="text-center font-mono-tech">
+        &copy; 2026 CIDAK AUTO PARTS LTD. All Rights Reserved. | Ascot HP22 5EN, United Kingdom
+    </footer>
+</body>
+</html>

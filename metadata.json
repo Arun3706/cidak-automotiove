@@ -1,6 +1,0 @@
-{
-  "name": "CIDAK Automotive Parts",
-  "description": "Official corporate website and product leaflets for CIDAK AUTO PARTS LTD, featuring Brake Pads, Brake Discs, Filters, Steering & Suspension, Quality 6-stage map, 3-year warranty, and European 3PL warehouse logistics.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Overview | CIDAK AUTO PARTS LTD</title>
+    <!-- Branford Template Stylesheets -->
+    <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./assets/css/style.css" rel="stylesheet">
+    <link href="./assets/css/responsive.css" rel="stylesheet">
+    <link href="./assets/css/fontello.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body { font-family: 'Outfit', sans-serif; }
+        .font-mono-tech { font-family: 'JetBrains Mono', monospace; }
+        .cidak-badge { background: #dc2626; color: #ffffff; padding: 3px 10px; border-radius: 4px; font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
+        .cidak-header-top { background: #0f172a; color: #cbd5e1; padding: 8px 0; font-size: 13px; border-b: 1px solid #1e293b; }
+        .cidak-header-top a { color: #f8fafc; text-decoration: none; font-weight: 600; }
+        .cidak-logo img { max-height: 48px; width: auto; }
+        .btn-enquiry { background: #dc2626; color: #ffffff !important; border-radius: 8px; padding: 12px 24px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.3s ease; border: none; display: inline-block; text-decoration: none !important; }
+        .btn-enquiry:hover { background: #b91c1c; box-shadow: 0 10px 20px rgba(220, 38, 38, 0.3); }
+        .page-banner { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: #ffffff; padding: 60px 0; text-align: center; }
+        .modal-cidak { display: none; position: fixed; z-index: 99999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(15,23,42,0.8); backdrop-filter: blur(4px); }
+        .modal-content-cidak { background-color: #ffffff; margin: 5% auto; padding: 32px; border-radius: 20px; max-width: 600px; width: 90%; position: relative; }
+        .close-modal { position: absolute; right: 20px; top: 20px; font-size: 24px; font-weight: bold; color: #64748b; cursor: pointer; }
+    </style>
+</head>
+<body class="boxed_wrapper">
+
+    <div class="cidak-header-top">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8 col-sm-12">
+                    <span style="margin-right: 20px;"><i class="fa fa-building-o" style="color:#ef4444;"></i> <strong>Head Office:</strong> Ascot HP22 5EN, United Kingdom</span>
+                    <span><i class="fa fa-cubes" style="color:#ef4444;"></i> <strong>Logistics Hubs:</strong> UK • Slovenia • Bulgaria</span>
+                </div>
+                <div class="col-md-4 col-sm-12 text-right">
+                    <a href="mailto:harvinder@cidakautoparts.com" style="margin-right: 15px;"><i class="fa fa-envelope" style="color:#ef4444;"></i> harvinder@cidakautoparts.com</a>
+                    <a href="tel:+447931522602"><i class="fa fa-phone" style="color:#ef4444;"></i> +44 7931522602</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header class="main-header">
+        <div class="theme_menu stricky">
+            <div class="container-fluid">
+                <div class="main-header-content" style="display: flex; align-items: center; justify-content: space-between;">
+                    <div class="logo-box">
+                        <a href="index.html" class="cidak-logo">
+                            <img src="./assets/images/logo.png" alt="CIDAK Logo">
+                        </a>
+                    </div>
+                    <nav class="main-menu">
+                        <div class="navbar-collapse collapse clearfix">
+                            <ul class="navigation clearfix">
+                                <li><a href="index.html">Home</a></li>
+                                <li class="dropdown current"><a href="about.html">About Us <i class="fa fa-angle-down"></i></a>
+                                    <ul class="submenu">
+                                        <li><a href="about.html">Company Overview</a></li>
+                                        <li><a href="who-we-are.html">Who We Are</a></li>
+                                        <li><a href="our-mission.html">Our Mission</a></li>
+                                        <li><a href="our-vision.html">Our Vision</a></li>
+                                        <li><a href="director-desk.html">Director Desk</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown"><a href="products.html">Products <i class="fa fa-angle-down"></i></a>
+                                    <ul class="submenu">
+                                        <li><a href="category.html?cat=brake-pads">Brake Pads (ECE R90 / Copper Free)</a></li>
+                                        <li><a href="category.html?cat=brake-discs">Brake Discs (Silver Coated)</a></li>
+                                        <li><a href="category.html?cat=filters">Filters (Air, Oil, Fuel, Cabin)</a></li>
+                                        <li><a href="category.html?cat=steering-suspension">Steering &amp; Suspension</a></li>
+                                        <li><a href="category.html?cat=under-development">Range Under Development</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="quality-warranty.html">Quality &amp; 3-Yr Warranty</a></li>
+                                <li><a href="locations.html">3PL Warehouses</a></li>
+                                <li><a href="contact.html">Contact &amp; Inquiry</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <div class="nav-right-content">
+                        <button onclick="openEnquiryModal()" class="btn-enquiry"><i class="fa fa-paper-plane"></i> Wholesale Inquiry</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-banner">
+        <div class="container">
+            <span class="cidak-badge">Corporate Profile</span>
+            <h1 style="font-size: 38px; font-weight: 900; margin-top: 10px; text-transform: uppercase;">About CIDAK AUTO PARTS LTD</h1>
+            <p style="color: #94a3b8; max-width: 600px; margin: 10px auto 0;">Delivering OE-Quality Automotive Components to International Wholesalers</p>
+        </div>
+    </div>
+
+    <section style="padding: 80px 0; background: #ffffff;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6" style="margin-bottom: 30px;">
+                    <span style="color: #ef4444; font-weight: 800; text-transform: uppercase; font-size: 12px;" class="font-mono-tech">Established Distribution Network</span>
+                    <h2 style="font-size: 32px; font-weight: 900; color: #0f172a; margin: 10px 0 20px;">Ascot Head Office &amp; European Logistics Hubs</h2>
+                    <p style="font-size: 15px; color: #475569; line-height: 1.8; margin-bottom: 20px;">
+                        CIDAK AUTO PARTS LTD operates out of Ascot, United Kingdom (just 35 minutes from Central London), providing international wholesalers and auto parts distributors with direct access to matching original equipment standard friction, filtration, and chassis parts.
+                    </p>
+                    <p style="font-size: 15px; color: #475569; line-height: 1.8; margin-bottom: 20px;">
+                        Supported by strategic 3PL logistics facilities in Slovenia and Bulgaria, CIDAK ensures rapid dispatch of containers and pallet loads across European and global markets.
+                    </p>
+                    <button onclick="openEnquiryModal()" class="btn-enquiry">Request Commercial Terms</button>
+                </div>
+                <div class="col-md-6">
+                    <img src="./assets/images/hero_banner_3.jpg" alt="CIDAK Headquarters & Logistics" style="width: 100%; border-radius: 16px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sub-page Navigation Grid -->
+    <section style="padding: 60px 0; background: #f8fafc;">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 40px;">
+                <h3 style="font-size: 28px; font-weight: 900; color: #0f172a;">Explore Our Corporate Sections</h3>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-sm-6" style="margin-bottom: 20px;">
+                    <div style="background: #ffffff; padding: 24px; border-radius: 12px; border: 1px solid #e2e8f0; text-align: center;">
+                        <h4 style="font-weight: 800; color: #0f172a;">Who We Are</h4>
+                        <p style="font-size: 12px; color: #64748b; margin: 10px 0 15px;">Ascot UK HQ &amp; European logistics heritage.</p>
+                        <a href="who-we-are.html" style="font-weight: 700; color: #ef4444; font-size: 13px;">Read Section →</a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6" style="margin-bottom: 20px;">
+                    <div style="background: #ffffff; padding: 24px; border-radius: 12px; border: 1px solid #e2e8f0; text-align: center;">
+                        <h4 style="font-weight: 800; color: #0f172a;">Our Mission</h4>
+                        <p style="font-size: 12px; color: #64748b; margin: 10px 0 15px;">Wholesaler growth &amp; 3-year warranty backing.</p>
+                        <a href="our-mission.html" style="font-weight: 700; color: #ef4444; font-size: 13px;">Read Section →</a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6" style="margin-bottom: 20px;">
+                    <div style="background: #ffffff; padding: 24px; border-radius: 12px; border: 1px solid #e2e8f0; text-align: center;">
+                        <h4 style="font-weight: 800; color: #0f172a;">Our Vision</h4>
+                        <p style="font-size: 12px; color: #64748b; margin: 10px 0 15px;">Eco copper-free friction &amp; CNC automation.</p>
+                        <a href="our-vision.html" style="font-weight: 700; color: #ef4444; font-size: 13px;">Read Section →</a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6" style="margin-bottom: 20px;">
+                    <div style="background: #ffffff; padding: 24px; border-radius: 12px; border: 1px solid #e2e8f0; text-align: center;">
+                        <h4 style="font-weight: 800; color: #0f172a;">Director Desk</h4>
+                        <p style="font-size: 12px; color: #64748b; margin: 10px 0 15px;">Harvinder Handa &amp; Dr Sukh Handa leadership.</p>
+                        <a href="director-desk.html" style="font-weight: 700; color: #ef4444; font-size: 13px;">Read Section →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background: #0f172a; color: #94a3b8; padding: 40px 0 20px;">
+        <div class="container text-center font-mono-tech" style="font-size: 12px;">
+            &copy; 2026 CIDAK AUTO PARTS LTD. All Rights Reserved. | Ascot HP22 5EN, United Kingdom
+        </div>
+    </footer>
+
+    <div id="enquiryModal" class="modal-cidak">
+        <div class="modal-content-cidak">
+            <span class="close-modal" onclick="closeEnquiryModal()">&times;</span>
+            <h3 style="font-size: 22px; font-weight: 900; color: #0f172a;">Request CIDAK Commercial Profile</h3>
+            <form onsubmit="handleFormSubmit(event)" style="margin-top: 15px;">
+                <input type="text" required placeholder="Company Name" style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #cbd5e1; border-radius: 6px;">
+                <input type="email" required placeholder="Work Email" style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #cbd5e1; border-radius: 6px;">
+                <button type="submit" class="btn-enquiry" style="width: 100%;">Submit Inquiry</button>
+            </form>
+        </div>
+    </div>
+    <script src="./assets/js/jquery.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <script>
+        function openEnquiryModal() { document.getElementById('enquiryModal').style.display = 'block'; }
+        function closeEnquiryModal() { document.getElementById('enquiryModal').style.display = 'none'; }
+        function handleFormSubmit(e) { e.preventDefault(); alert('Inquiry received! Our commercial team will contact you.'); closeEnquiryModal(); }
+    </script>
+</body>
+</html>
