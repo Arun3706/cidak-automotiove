@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,124 +20,427 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style>
-        body { font-family: 'Outfit', sans-serif; background-color: #f8fafc; color: #0f172a; margin: 0; padding: 0; }
-        .font-mono-tech { font-family: 'JetBrains Mono', monospace; }
-        
-        /* Header Top Bar */
-        .cidak-header-top { background: #0f172a; color: #cbd5e1; padding: 10px 0; font-size: 13px; border-bottom: 1px solid #1e293b; }
-        .cidak-header-top a { color: #f8fafc; text-decoration: none; font-weight: 600; }
-        .cidak-header-top a:hover { color: #ef4444; }
+        /* Modern Full-Width Corporate Container System */
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        .font-mono-tech {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Override Bootstrap 1170px squeezer for full-width widescreen layout */
+        @media (min-width: 1200px) {
+            .container {
+                width: 92% !important;
+                max-width: 1480px !important;
+            }
+        }
+
+        /* Top Header Bar */
+        .cidak-header-top {
+            background: #0f172a;
+            color: #cbd5e1;
+            padding: 10px 0;
+            font-size: 13px;
+            border-bottom: 1px solid #1e293b;
+        }
+
+        .top-bar-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .top-bar-info {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .top-bar-contact {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .cidak-header-top a {
+            color: #f8fafc;
+            text-decoration: none;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .cidak-header-top a:hover {
+            color: #ef4444;
+        }
 
         /* Navigation Header */
-        .main-header { background: #ffffff; border-bottom: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03); }
-        .logo-box img { max-height: 48px; width: auto; display: block; }
-        
+        .main-header {
+            background: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-flex-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 0;
+        }
+
+        .logo-box img {
+            max-height: 52px;
+            width: auto;
+            display: block;
+        }
+
+        /* Navigation Links (No wrapping) */
+        .cidak-nav-ul {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .cidak-nav-ul > li {
+            position: relative;
+        }
+
+        .cidak-nav-ul > li > a {
+            font-size: 14px;
+            font-weight: 700;
+            color: #0f172a;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            padding: 10px 0;
+            display: inline-block;
+            transition: color 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .cidak-nav-ul > li > a:hover,
+        .cidak-nav-ul > li.active > a {
+            color: #dc2626;
+        }
+
+        /* Dropdown menus */
+        .cidak-nav-ul li.dropdown:hover .cidak-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .cidak-dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 250px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+            border: 1px solid #e2e8f0;
+            padding: 10px 0;
+            list-style: none;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.25s ease;
+            z-index: 999;
+        }
+
+        .cidak-dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #334155;
+            text-decoration: none;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+
+        .cidak-dropdown-menu a:hover {
+            background: #f8fafc;
+            color: #dc2626;
+        }
+
         /* Buttons */
-        .btn-enquiry { background: #dc2626; color: #ffffff !important; border-radius: 8px; padding: 12px 24px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.3s ease; border: none; display: inline-block; text-decoration: none !important; cursor: pointer; }
-        .btn-enquiry:hover { background: #b91c1c; box-shadow: 0 10px 20px rgba(220, 38, 38, 0.3); }
-        .btn-secondary-cidak { background: #1e293b; color: #ffffff !important; border-radius: 8px; padding: 12px 24px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.3s ease; border: 1px solid #334155; display: inline-block; text-decoration: none !important; }
-        .btn-secondary-cidak:hover { background: #334155; }
-        
+        .btn-enquiry {
+            background: #dc2626;
+            color: #ffffff !important;
+            border-radius: 8px;
+            padding: 12px 24px;
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            border: none;
+            display: inline-block;
+            text-decoration: none !important;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .btn-enquiry:hover {
+            background: #b91c1c;
+            box-shadow: 0 10px 20px rgba(220, 38, 38, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary-cidak {
+            background: rgba(255,255,255,0.1);
+            color: #ffffff !important;
+            border-radius: 8px;
+            padding: 12px 24px;
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: inline-block;
+            text-decoration: none !important;
+            white-space: nowrap;
+        }
+
+        .btn-secondary-cidak:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.4);
+        }
+
         /* Badges */
-        .cidak-badge { background: #dc2626; color: #ffffff; padding: 4px 12px; border-radius: 4px; font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; display: inline-block; }
-        .no-price-badge { background: #f1f5f9; color: #475569; font-weight: 700; font-size: 11px; padding: 4px 10px; border-radius: 6px; border: 1px solid #cbd5e1; display: inline-block; }
+        .cidak-badge {
+            background: #dc2626;
+            color: #ffffff;
+            padding: 5px 14px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+        }
 
-        /* Hero Banner */
-        .hero-banner-cidak { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: #ffffff; padding: 70px 0; position: relative; overflow: hidden; }
-        .hero-banner-cidak h1 { color: #ffffff !important; font-size: 42px; font-weight: 900; line-height: 1.2; margin-bottom: 20px; text-transform: uppercase; }
-        .hero-banner-cidak p { color: #cbd5e1 !important; font-size: 16px; margin-bottom: 30px; line-height: 1.6; }
-        .hero-img-box img { width: 100%; max-height: 380px; object-fit: cover; border-radius: 20px; border: 3px solid rgba(255,255,255,0.15); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
+        .no-price-badge {
+            background: #f1f5f9;
+            color: #475569;
+            font-weight: 700;
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            border: 1px solid #cbd5e1;
+            display: inline-block;
+        }
 
-        /* Product Cards */
-        .product-card-cidak { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; transition: all 0.3s ease; margin-bottom: 30px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
-        .product-card-cidak:hover { transform: translateY(-6px); border-color: #fca5a5; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
-        .product-card-cidak img { width: 100%; height: 210px; object-fit: cover; border-bottom: 1px solid #f1f5f9; }
-        .product-card-body { padding: 24px; flex-grow: 1; flex-direction: column; justify-content: space-between; }
+        /* Full-Width Hero Section */
+        .hero-banner-cidak {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #ffffff;
+            padding: 90px 0;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .hero-banner-cidak h1 {
+            color: #ffffff !important;
+            font-size: 48px;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-banner-cidak p {
+            color: #cbd5e1 !important;
+            font-size: 17px;
+            margin-bottom: 35px;
+            line-height: 1.6;
+            max-width: 680px;
+        }
+
+        .hero-img-box img {
+            width: 100%;
+            max-height: 420px;
+            object-fit: cover;
+            border-radius: 24px;
+            border: 3px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Full-Width Product Cards Grid */
+        .product-card-cidak {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 18px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-card-cidak:hover {
+            transform: translateY(-8px);
+            border-color: #fca5a5;
+            box-shadow: 0 20px 30px -10px rgba(220, 38, 38, 0.15);
+        }
+
+        .product-card-cidak img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .product-card-body {
+            padding: 28px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
 
         /* Modal */
-        .modal-cidak { display: none; position: fixed; z-index: 99999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(15,23,42,0.8); backdrop-filter: blur(4px); }
-        .modal-content-cidak { background-color: #ffffff; margin: 5% auto; padding: 32px; border-radius: 20px; max-width: 600px; width: 90%; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); position: relative; }
-        .close-modal { position: absolute; right: 20px; top: 20px; font-size: 24px; font-weight: bold; color: #64748b; cursor: pointer; }
-        .close-modal:hover { color: #dc2626; }
+        .modal-cidak {
+            display: none;
+            position: fixed;
+            z-index: 99999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content-cidak {
+            background-color: #ffffff;
+            margin: 4% auto;
+            padding: 36px;
+            border-radius: 20px;
+            max-width: 620px;
+            width: 90%;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            right: 24px;
+            top: 24px;
+            font-size: 26px;
+            font-weight: bold;
+            color: #64748b;
+            cursor: pointer;
+        }
+
+        .close-modal:hover {
+            color: #dc2626;
+        }
     </style>
 </head>
-<body class="boxed_wrapper">
 
-    <!-- Top Corporate Header Bar -->
+<body>
+
+    <!-- Top Corporate Header Bar (Full Width Flex) -->
     <div class="cidak-header-top">
         <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-sm-7">
-                    <span style="margin-right: 20px;"><i class="fa fa-building-o" style="color:#ef4444;"></i> <strong>Head Office:</strong> Ascot HP22 5EN, United Kingdom</span>
-                    <span class="hidden-xs"><i class="fa fa-cubes" style="color:#ef4444;"></i> <strong>Logistics Hubs:</strong> UK • Slovenia • Bulgaria</span>
+            <div class="top-bar-flex">
+                <div class="top-bar-info">
+                    <span><i class="fa fa-building-o" style="color:#ef4444; margin-right: 6px;"></i> <strong>Head Office:</strong> Ascot HP22 5EN, United Kingdom</span>
+                    <span><i class="fa fa-cubes" style="color:#ef4444; margin-right: 6px;"></i> <strong>Logistics Hubs:</strong> UK • Slovenia • Bulgaria</span>
                 </div>
-                <div class="col-md-4 col-sm-5 text-right">
-                    <a href="mailto:harvinder@cidakautoparts.com" style="margin-right: 15px;"><i class="fa fa-envelope" style="color:#ef4444;"></i> harvinder@cidakautoparts.com</a>
-                    <a href="tel:+447931522602"><i class="fa fa-phone" style="color:#ef4444;"></i> +44 7931522602</a>
+                <div class="top-bar-contact">
+                    <a href="mailto:harvinder@cidakautoparts.com"><i class="fa fa-envelope" style="color:#ef4444; margin-right: 6px;"></i> harvinder@cidakautoparts.com</a>
+                    <a href="tel:+447931522602"><i class="fa fa-phone" style="color:#ef4444; margin-right: 6px;"></i> +44 7931522602</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Main Navigation Header -->
+    <!-- Main Navigation Header (Full Width Responsive) -->
     <header class="main-header">
-        <div class="theme_menu">
-            <div class="container">
-                <div style="display: flex; align-items: center; justify-content: space-between; padding: 15px 0;">
-                    <div class="logo-box">
-                        <a href="index.html" class="cidak-logo">
-                            <img src="./assets/images/logo.png" alt="CIDAK AUTO PARTS LTD Logo">
-                        </a>
-                    </div>
-                    <nav class="main-menu hidden-xs hidden-sm">
-                        <ul class="navigation clearfix" style="margin: 0;">
-                            <li class="current"><a href="index.html">Home</a></li>
-                            <li class="dropdown"><a href="about.html">About Us <i class="fa fa-angle-down"></i></a>
-                                <ul class="submenu">
-                                    <li><a href="about.html">Company Overview</a></li>
-                                    <li><a href="who-we-are.html">Who We Are</a></li>
-                                    <li><a href="our-mission.html">Our Mission</a></li>
-                                    <li><a href="our-vision.html">Our Vision</a></li>
-                                    <li><a href="director-desk.html">Director Desk</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown"><a href="products.html">Products <i class="fa fa-angle-down"></i></a>
-                                <ul class="submenu">
-                                    <li><a href="category.html?cat=brake-pads">Brake Pads (ECE R90 / Copper Free)</a></li>
-                                    <li><a href="category.html?cat=brake-discs">Brake Discs (Silver Coated)</a></li>
-                                    <li><a href="category.html?cat=filters">Filters (Air, Oil, Fuel, Cabin)</a></li>
-                                    <li><a href="category.html?cat=steering-suspension">Steering &amp; Suspension</a></li>
-                                    <li><a href="category.html?cat=under-development">Range Under Development</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="quality-warranty.html">Quality &amp; 3-Yr Warranty</a></li>
-                            <li><a href="locations.html">3PL Warehouses</a></li>
-                            <li><a href="contact.html">Contact &amp; Inquiry</a></li>
-                        </ul>
-                    </nav>
-                    <div>
-                        <button onclick="openEnquiryModal()" class="btn-enquiry"><i class="fa fa-paper-plane"></i> Wholesale Inquiry</button>
-                    </div>
+        <div class="container">
+            <div class="nav-flex-wrapper">
+                <!-- Logo -->
+                <div class="logo-box">
+                    <a href="index.html">
+                        <img src="./assets/images/logo.png" alt="CIDAK AUTO PARTS LTD Logo">
+                    </a>
+                </div>
+
+                <!-- Navigation Bar -->
+                <nav class="hidden-xs hidden-sm">
+                    <ul class="cidak-nav-ul">
+                        <li class="active"><a href="index.html">Home</a></li>
+                        <li class="dropdown">
+                            <a href="about.html">About Us <i class="fa fa-angle-down" style="margin-left: 4px;"></i></a>
+                            <ul class="cidak-dropdown-menu">
+                                <li><a href="about.html">Company Overview</a></li>
+                                <li><a href="who-we-are.html">Who We Are</a></li>
+                                <li><a href="our-mission.html">Our Mission</a></li>
+                                <li><a href="our-vision.html">Our Vision</a></li>
+                                <li><a href="director-desk.html">Director Desk</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="products.html">Products <i class="fa fa-angle-down" style="margin-left: 4px;"></i></a>
+                            <ul class="cidak-dropdown-menu">
+                                <li><a href="category.html?cat=brake-pads">Brake Pads (ECE R90 / Copper Free)</a></li>
+                                <li><a href="category.html?cat=brake-discs">Brake Discs (Silver Coated)</a></li>
+                                <li><a href="category.html?cat=filters">Filters (Air, Oil, Fuel, Cabin)</a></li>
+                                <li><a href="category.html?cat=steering-suspension">Steering &amp; Suspension</a></li>
+                                <li><a href="category.html?cat=under-development">Range Under Development</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="quality-warranty.html">Quality &amp; 3-Yr Warranty</a></li>
+                        <li><a href="locations.html">3PL Warehouses</a></li>
+                        <li><a href="contact.html">Contact &amp; Inquiry</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Inquiry CTA -->
+                <div>
+                    <button onclick="openEnquiryModal()" class="btn-enquiry"><i class="fa fa-paper-plane" style="margin-right: 6px;"></i> Wholesale Inquiry</button>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Main Hero Slider / Banner Section -->
+    <!-- Main Hero Slider / Banner Section (Full Width Expansive) -->
     <section class="hero-banner-cidak">
         <div class="container">
             <div class="row" style="display: flex; align-items: center; flex-wrap: wrap;">
                 <div class="col-md-7 col-sm-12" style="margin-bottom: 30px;">
-                    <span class="cidak-badge" style="margin-bottom: 15px;">3 Years or 60,000 KMs No Quibble Warranty</span>
+                    <span class="cidak-badge" style="margin-bottom: 20px;">3 Years or 60,000 KMs No Quibble Warranty</span>
                     <h1>
                         PRECISION AUTOMOTIVE <br><span style="color: #ef4444;">FRICTION &amp; FILTRATION</span> SOLUTIONS
                     </h1>
                     <p>
-                        CIDAK AUTO PARTS LTD is a UK-based automotive replacement parts distributor delivering matching OE quality brake components, filters, and steering &amp; suspension to international wholesalers.
+                        CIDAK AUTO PARTS LTD is a premier UK-based automotive replacement parts distributor delivering matching OE quality brake components, filters, and steering &amp; suspension to international wholesalers.
                     </p>
-                    <div style="margin-top: 25px;">
-                        <button onclick="openEnquiryModal()" class="btn-enquiry" style="margin-right: 15px;">Request Wholesale Catalog</button>
-                        <a href="products.html" class="btn-secondary-cidak">Explore Product Range</a>
+                    <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                        <button onclick="openEnquiryModal()" class="btn-enquiry"><i class="fa fa-download" style="margin-right: 6px;"></i> Request Wholesale Catalog</button>
+                        <a href="products.html" class="btn-secondary-cidak">Explore Product Range →</a>
                     </div>
                 </div>
                 <div class="col-md-5 col-sm-12">
@@ -148,13 +452,13 @@
         </div>
     </section>
 
-    <!-- CIDAK Core Product Range Showcase (Enquiry Based - No Prices) -->
-    <section style="padding: 80px 0; background: #f8fafc;">
+    <!-- CIDAK Core Product Range Showcase (Full Width Grid - No Prices) -->
+    <section style="padding: 90px 0; background: #f8fafc;">
         <div class="container">
-            <div class="text-center" style="margin-bottom: 50px;">
+            <div class="text-center" style="margin-bottom: 60px;">
                 <span style="color: #ef4444; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 12px;" class="font-mono-tech">Product Portfolio</span>
-                <h2 style="font-size: 36px; font-weight: 900; color: #0f172a; margin-top: 5px; margin-bottom: 10px;">CIDAK REPLACEMENT PARTS CATEGORIES</h2>
-                <p style="color: #64748b; max-width: 640px; margin: 0 auto; font-size: 15px; line-height: 1.6;">
+                <h2 style="font-size: 40px; font-weight: 900; color: #0f172a; margin-top: 8px; margin-bottom: 12px; text-transform: uppercase;">CIDAK REPLACEMENT PARTS CATEGORIES</h2>
+                <p style="color: #64748b; max-width: 700px; margin: 0 auto; font-size: 16px; line-height: 1.6;">
                     Manufactured under strict quality controls and tested at every stage for optimal safety, performance, and durability.
                 </p>
             </div>
@@ -167,14 +471,14 @@
                         <div class="product-card-body">
                             <div>
                                 <span class="no-price-badge font-mono-tech">ECE R90 Certified • Copper Free</span>
-                                <h3 style="font-size: 20px; font-weight: 800; margin: 15px 0 10px; color: #0f172a;">Brake Pads</h3>
-                                <p style="font-size: 13px; color: #64748b; line-height: 1.6; margin-bottom: 20px;">
+                                <h3 style="font-size: 22px; font-weight: 800; margin: 15px 0 10px; color: #0f172a;">Brake Pads</h3>
+                                <p style="font-size: 14px; color: #64748b; line-height: 1.6; margin-bottom: 20px;">
                                     Manufactured to matching OE quality. ECE R90 approved, copper-free ceramic and semi-metallic friction formulations with noise reduction RMR shims.
                                 </p>
                             </div>
-                            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 15px; margin-top: 10px;">
-                                <a href="category.html?cat=brake-pads" style="font-weight: 700; color: #ef4444; font-size: 13px; text-decoration: none;">View Category Page →</a>
-                                <button onclick="openEnquiryModal('Brake Pads')" class="btn-enquiry" style="padding: 8px 14px; font-size: 11px;">Enquire</button>
+                            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 18px; margin-top: 10px;">
+                                <a href="category.html?cat=brake-pads" style="font-weight: 700; color: #ef4444; font-size: 14px; text-decoration: none;">View Category Page →</a>
+                                <button onclick="openEnquiryModal('Brake Pads')" class="btn-enquiry" style="padding: 8px 16px; font-size: 12px;">Enquire</button>
                             </div>
                         </div>
                     </div>
@@ -187,14 +491,14 @@
                         <div class="product-card-body">
                             <div>
                                 <span class="no-price-badge font-mono-tech">Silver Coated • Ready To Fit</span>
-                                <h3 style="font-size: 20px; font-weight: 800; margin: 15px 0 10px; color: #0f172a;">Brake Discs</h3>
-                                <p style="font-size: 13px; color: #64748b; line-height: 1.6; margin-bottom: 20px;">
+                                <h3 style="font-size: 22px; font-weight: 800; margin: 15px 0 10px; color: #0f172a;">Brake Discs</h3>
+                                <p style="font-size: 14px; color: #64748b; line-height: 1.6; margin-bottom: 20px;">
                                     Premium high carbon brake rotors featuring protective silver anti-corrosion coating. No de-greasing required before fitting. ECE R90 certified.
                                 </p>
                             </div>
-                            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 15px; margin-top: 10px;">
-                                <a href="category.html?cat=brake-discs" style="font-weight: 700; color: #ef4444; font-size: 13px; text-decoration: none;">View Category Page →</a>
-                                <button onclick="openEnquiryModal('Brake Discs')" class="btn-enquiry" style="padding: 8px 14px; font-size: 11px;">Enquire</button>
+                            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 18px; margin-top: 10px;">
+                                <a href="category.html?cat=brake-discs" style="font-weight: 700; color: #ef4444; font-size: 14px; text-decoration: none;">View Category Page →</a>
+                                <button onclick="openEnquiryModal('Brake Discs')" class="btn-enquiry" style="padding: 8px 16px; font-size: 12px;">Enquire</button>
                             </div>
                         </div>
                     </div>
@@ -207,14 +511,14 @@
                         <div class="product-card-body">
                             <div>
                                 <span class="no-price-badge font-mono-tech">5 Filter Ranges • OE Media</span>
-                                <h3 style="font-size: 20px; font-weight: 800; margin: 15px 0 10px; color: #0f172a;">Automotive Filters</h3>
-                                <p style="font-size: 13px; color: #64748b; line-height: 1.6; margin-bottom: 20px;">
+                                <h3 style="font-size: 22px; font-weight: 800; margin: 15px 0 10px; color: #0f172a;">Automotive Filters</h3>
+                                <p style="font-size: 14px; color: #64748b; line-height: 1.6; margin-bottom: 20px;">
                                     High efficiency Air, Oil, Fuel, Cabin, and Activated Bio-Carbon filters. Synthetic micro-media providing maximum particle trapping and engine protection.
                                 </p>
                             </div>
-                            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 15px; margin-top: 10px;">
-                                <a href="category.html?cat=filters" style="font-weight: 700; color: #ef4444; font-size: 13px; text-decoration: none;">View Category Page →</a>
-                                <button onclick="openEnquiryModal('Automotive Filters')" class="btn-enquiry" style="padding: 8px 14px; font-size: 11px;">Enquire</button>
+                            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 18px; margin-top: 10px;">
+                                <a href="category.html?cat=filters" style="font-weight: 700; color: #ef4444; font-size: 14px; text-decoration: none;">View Category Page →</a>
+                                <button onclick="openEnquiryModal('Automotive Filters')" class="btn-enquiry" style="padding: 8px 16px; font-size: 12px;">Enquire</button>
                             </div>
                         </div>
                     </div>
@@ -227,14 +531,14 @@
                         <div class="product-card-body">
                             <div>
                                 <span class="no-price-badge font-mono-tech">Robotics &amp; CNC Machined</span>
-                                <h3 style="font-size: 20px; font-weight: 800; margin: 15px 0 10px; color: #0f172a;">Steering &amp; Suspension</h3>
-                                <p style="font-size: 13px; color: #64748b; line-height: 1.6; margin-bottom: 20px;">
+                                <h3 style="font-size: 22px; font-weight: 800; margin: 15px 0 10px; color: #0f172a;">Steering &amp; Suspension</h3>
+                                <p style="font-size: 14px; color: #64748b; line-height: 1.6; margin-bottom: 20px;">
                                     Safety-critical control arms, wishbones, ball joints, tie rod ends, and stabilizer links. Precision CNC turned with 240h+ salt spray anti-corrosion coating.
                                 </p>
                             </div>
-                            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 15px; margin-top: 10px;">
-                                <a href="category.html?cat=steering-suspension" style="font-weight: 700; color: #ef4444; font-size: 13px; text-decoration: none;">View Category Page →</a>
-                                <button onclick="openEnquiryModal('Steering & Suspension')" class="btn-enquiry" style="padding: 8px 14px; font-size: 11px;">Enquire</button>
+                            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 18px; margin-top: 10px;">
+                                <a href="category.html?cat=steering-suspension" style="font-weight: 700; color: #ef4444; font-size: 14px; text-decoration: none;">View Category Page →</a>
+                                <button onclick="openEnquiryModal('Steering & Suspension')" class="btn-enquiry" style="padding: 8px 16px; font-size: 12px;">Enquire</button>
                             </div>
                         </div>
                     </div>
@@ -247,14 +551,14 @@
                         <div class="product-card-body">
                             <div>
                                 <span class="no-price-badge font-mono-tech">Expansion Roadmap</span>
-                                <h3 style="font-size: 20px; font-weight: 800; margin: 15px 0 10px; color: #0f172a;">Range Under Development</h3>
-                                <p style="font-size: 13px; color: #64748b; line-height: 1.6; margin-bottom: 20px;">
+                                <h3 style="font-size: 22px; font-weight: 800; margin: 15px 0 10px; color: #0f172a;">Range Under Development</h3>
+                                <p style="font-size: 14px; color: #64748b; line-height: 1.6; margin-bottom: 20px;">
                                     Upcoming expansion lines: Water Pumps, Clutch Kits, Shock Absorbers, and Wheel Hub Bearing Units undergoing rigorous vehicle dyno validation.
                                 </p>
                             </div>
-                            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 15px; margin-top: 10px;">
-                                <a href="category.html?cat=under-development" style="font-weight: 700; color: #ef4444; font-size: 13px; text-decoration: none;">View Category Page →</a>
-                                <button onclick="openEnquiryModal('Range Under Development')" class="btn-enquiry" style="padding: 8px 14px; font-size: 11px;">Early Interest</button>
+                            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 18px; margin-top: 10px;">
+                                <a href="category.html?cat=under-development" style="font-weight: 700; color: #ef4444; font-size: 14px; text-decoration: none;">View Category Page →</a>
+                                <button onclick="openEnquiryModal('Range Under Development')" class="btn-enquiry" style="padding: 8px 16px; font-size: 12px;">Early Interest</button>
                             </div>
                         </div>
                     </div>
@@ -263,16 +567,16 @@
                 <!-- Category 6: Detailed Part View Callout -->
                 <div class="col-md-4 col-sm-6" style="margin-bottom: 30px;">
                     <div class="product-card-cidak" style="background: #0f172a; color: #ffffff;">
-                        <div class="product-card-body" style="padding: 30px 24px;">
+                        <div class="product-card-body" style="padding: 32px 28px;">
                             <div>
-                                <span class="cidak-badge" style="background: #ef4444;">Part Spec Sheets</span>
-                                <h3 style="font-size: 22px; font-weight: 800; margin: 15px 0 10px; color: #ffffff;">Detailed Part Specifications</h3>
-                                <p style="font-size: 13px; color: #94a3b8; line-height: 1.6; margin-bottom: 25px;">
+                                <span class="cidak-badge">Part Spec Sheets</span>
+                                <h3 style="font-size: 24px; font-weight: 800; margin: 18px 0 12px; color: #ffffff;">Detailed Part Specifications</h3>
+                                <p style="font-size: 14px; color: #94a3b8; line-height: 1.6; margin-bottom: 25px;">
                                     Inspect OE cross references, material parameters, dimensions, and warranty technical documentation for individual items.
                                 </p>
                             </div>
-                            <div style="border-top: 1px solid #1e293b; padding-top: 15px; margin-top: 10px;">
-                                <a href="product-detailed.html?cat=brake-pads" class="btn-enquiry" style="width: 100%; text-align: center;">Open Detailed Part Sheet →</a>
+                            <div style="border-top: 1px solid #1e293b; padding-top: 18px; margin-top: 10px;">
+                                <a href="product-detailed.html?cat=brake-pads" class="btn-enquiry" style="width: 100%; text-align: center; padding: 12px 18px;">Open Detailed Part Sheet →</a>
                             </div>
                         </div>
                     </div>
@@ -281,55 +585,55 @@
         </div>
     </section>
 
-    <!-- 6 Value Pillars Section -->
-    <section style="padding: 80px 0; background: #ffffff;">
+    <!-- 3 Corporate Value Pillars Section -->
+    <section style="padding: 90px 0; background: #ffffff;">
         <div class="container">
-            <div class="text-center" style="margin-bottom: 50px;">
+            <div class="text-center" style="margin-bottom: 60px;">
                 <span style="color: #ef4444; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 12px;" class="font-mono-tech">Our Commitment</span>
-                <h2 style="font-size: 36px; font-weight: 900; color: #0f172a; margin-top: 5px;">What We Offer to Wholesalers</h2>
+                <h2 style="font-size: 40px; font-weight: 900; color: #0f172a; margin-top: 8px; text-transform: uppercase;">What We Offer to Wholesalers</h2>
             </div>
             <div class="row">
                 <div class="col-md-4 col-sm-6" style="margin-bottom: 30px;">
-                    <div style="padding: 30px; background: #f8fafc; border-radius: 16px; border: 1px solid #e2e8f0; height: 100%;">
-                        <i class="fa fa-shield" style="font-size: 32px; color: #ef4444; margin-bottom: 15px;"></i>
-                        <h4 style="font-weight: 800; color: #0f172a; margin-bottom: 10px;">Matching OE Quality</h4>
-                        <p style="font-size: 13px; color: #64748b; line-height: 1.6;">Precision engineered using OE grade materials, strict manufacturing tolerances, and full vehicle compatibility guarantee.</p>
+                    <div style="padding: 36px 30px; background: #f8fafc; border-radius: 18px; border: 1px solid #e2e8f0; height: 100%;">
+                        <i class="fa fa-shield" style="font-size: 36px; color: #ef4444; margin-bottom: 18px;"></i>
+                        <h4 style="font-weight: 800; color: #0f172a; margin-bottom: 12px; font-size: 20px;">Matching OE Quality</h4>
+                        <p style="font-size: 14px; color: #64748b; line-height: 1.7;">Precision engineered using OE grade materials, strict manufacturing tolerances, and full vehicle compatibility guarantee.</p>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6" style="margin-bottom: 30px;">
-                    <div style="padding: 30px; background: #f8fafc; border-radius: 16px; border: 1px solid #e2e8f0; height: 100%;">
-                        <i class="fa fa-certificate" style="font-size: 32px; color: #ef4444; margin-bottom: 15px;"></i>
-                        <h4 style="font-weight: 800; color: #0f172a; margin-bottom: 10px;">3-Yr / 60,000 KM Warranty</h4>
-                        <p style="font-size: 13px; color: #64748b; line-height: 1.6;">Full replacement backing on all manufactured lines for complete commercial peace of mind for international distributors.</p>
+                    <div style="padding: 36px 30px; background: #f8fafc; border-radius: 18px; border: 1px solid #e2e8f0; height: 100%;">
+                        <i class="fa fa-certificate" style="font-size: 36px; color: #ef4444; margin-bottom: 18px;"></i>
+                        <h4 style="font-weight: 800; color: #0f172a; margin-bottom: 12px; font-size: 20px;">3-Yr / 60,000 KM Warranty</h4>
+                        <p style="font-size: 14px; color: #64748b; line-height: 1.7;">Full replacement backing on all manufactured lines for complete commercial peace of mind for international distributors.</p>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6" style="margin-bottom: 30px;">
-                    <div style="padding: 30px; background: #f8fafc; border-radius: 16px; border: 1px solid #e2e8f0; height: 100%;">
-                        <i class="fa fa-truck" style="font-size: 32px; color: #ef4444; margin-bottom: 15px;"></i>
-                        <h4 style="font-weight: 800; color: #0f172a; margin-bottom: 10px;">European 3PL Network</h4>
-                        <p style="font-size: 13px; color: #64748b; line-height: 1.6;">Strategic logistics centers in the UK, Slovenia, and Bulgaria ensuring rapid pallet and container dispatches across Europe.</p>
+                    <div style="padding: 36px 30px; background: #f8fafc; border-radius: 18px; border: 1px solid #e2e8f0; height: 100%;">
+                        <i class="fa fa-truck" style="font-size: 36px; color: #ef4444; margin-bottom: 18px;"></i>
+                        <h4 style="font-weight: 800; color: #0f172a; margin-bottom: 12px; font-size: 20px;">European 3PL Network</h4>
+                        <p style="font-size: 14px; color: #64748b; line-height: 1.7;">Strategic logistics centers in the UK, Slovenia, and Bulgaria ensuring rapid pallet and container dispatches across Europe.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Global Footer -->
-    <footer style="background: #0f172a; color: #94a3b8; padding: 60px 0 30px; border-top: 1px solid #1e293b;">
+    <!-- Global Full-Width Footer -->
+    <footer style="background: #0f172a; color: #94a3b8; padding: 70px 0 30px; border-top: 1px solid #1e293b;">
         <div class="container">
             <div class="row">
-                <div class="col-md-4 col-sm-12" style="margin-bottom: 30px;">
-                    <img src="./assets/images/logo.png" alt="CIDAK Logo" style="max-height: 48px; margin-bottom: 20px;">
-                    <p style="font-size: 13px; line-height: 1.7; color: #cbd5e1;">
+                <div class="col-md-4 col-sm-12" style="margin-bottom: 35px;">
+                    <img src="./assets/images/logo.png" alt="CIDAK Logo" style="max-height: 52px; margin-bottom: 24px;">
+                    <p style="font-size: 14px; line-height: 1.8; color: #cbd5e1; max-width: 360px;">
                         CIDAK AUTO PARTS LTD is a premier UK distributor of high-performance replacement automotive friction, filtration, and steering components.
                     </p>
-                    <p style="font-size: 12px; color: #ef4444; font-weight: 700; margin-top: 10px;" class="font-mono-tech">
+                    <p style="font-size: 13px; color: #ef4444; font-weight: 700; margin-top: 15px;" class="font-mono-tech">
                         Ascot HP22 5EN, United Kingdom
                     </p>
                 </div>
-                <div class="col-md-2 col-sm-4" style="margin-bottom: 30px;">
-                    <h4 style="color: #ffffff; font-weight: 800; font-size: 14px; text-transform: uppercase; margin-bottom: 20px;">Quick Links</h4>
-                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 13px; line-height: 2;">
+                <div class="col-md-2 col-sm-4" style="margin-bottom: 35px;">
+                    <h4 style="color: #ffffff; font-weight: 800; font-size: 14px; text-transform: uppercase; margin-bottom: 24px; letter-spacing: 0.5px;">Quick Links</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 14px; line-height: 2.2;">
                         <li><a href="index.html" style="color: #cbd5e1; text-decoration: none;">Home</a></li>
                         <li><a href="about.html" style="color: #cbd5e1; text-decoration: none;">About Us</a></li>
                         <li><a href="products.html" style="color: #cbd5e1; text-decoration: none;">Products Portfolio</a></li>
@@ -337,9 +641,9 @@
                         <li><a href="locations.html" style="color: #cbd5e1; text-decoration: none;">3PL Warehouses</a></li>
                     </ul>
                 </div>
-                <div class="col-md-3 col-sm-4" style="margin-bottom: 30px;">
-                    <h4 style="color: #ffffff; font-weight: 800; font-size: 14px; text-transform: uppercase; margin-bottom: 20px;">Product Categories</h4>
-                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 13px; line-height: 2;">
+                <div class="col-md-3 col-sm-4" style="margin-bottom: 35px;">
+                    <h4 style="color: #ffffff; font-weight: 800; font-size: 14px; text-transform: uppercase; margin-bottom: 24px; letter-spacing: 0.5px;">Product Categories</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 14px; line-height: 2.2;">
                         <li><a href="category.html?cat=brake-pads" style="color: #cbd5e1; text-decoration: none;">Brake Pads (Copper Free)</a></li>
                         <li><a href="category.html?cat=brake-discs" style="color: #cbd5e1; text-decoration: none;">Brake Discs (Silver Coated)</a></li>
                         <li><a href="category.html?cat=filters" style="color: #cbd5e1; text-decoration: none;">Filters (Air, Oil, Fuel, Cabin)</a></li>
@@ -347,18 +651,18 @@
                         <li><a href="category.html?cat=under-development" style="color: #cbd5e1; text-decoration: none;">Range Under Development</a></li>
                     </ul>
                 </div>
-                <div class="col-md-3 col-sm-4" style="margin-bottom: 30px;">
-                    <h4 style="color: #ffffff; font-weight: 800; font-size: 14px; text-transform: uppercase; margin-bottom: 20px;">Wholesale Contact</h4>
-                    <p style="font-size: 13px; color: #cbd5e1; margin-bottom: 10px;">
-                        <i class="fa fa-envelope" style="color: #ef4444;"></i> harvinder@cidakautoparts.com
+                <div class="col-md-3 col-sm-4" style="margin-bottom: 35px;">
+                    <h4 style="color: #ffffff; font-weight: 800; font-size: 14px; text-transform: uppercase; margin-bottom: 24px; letter-spacing: 0.5px;">Wholesale Contact</h4>
+                    <p style="font-size: 14px; color: #cbd5e1; margin-bottom: 12px;">
+                        <i class="fa fa-envelope" style="color: #ef4444; margin-right: 8px;"></i> harvinder@cidakautoparts.com
                     </p>
-                    <p style="font-size: 13px; color: #cbd5e1; margin-bottom: 20px;">
-                        <i class="fa fa-phone" style="color: #ef4444;"></i> +44 7931522602
+                    <p style="font-size: 14px; color: #cbd5e1; margin-bottom: 24px;">
+                        <i class="fa fa-phone" style="color: #ef4444; margin-right: 8px;"></i> +44 7931522602
                     </p>
-                    <button onclick="openEnquiryModal()" class="btn-enquiry" style="width: 100%; text-align: center;">Send Direct Inquiry</button>
+                    <button onclick="openEnquiryModal()" class="btn-enquiry" style="width: 100%; text-align: center; padding: 12px 18px;">Send Direct Inquiry</button>
                 </div>
             </div>
-            <div style="border-top: 1px solid #1e293b; padding-top: 20px; text-align: center; font-size: 12px; color: #64748b;">
+            <div style="border-top: 1px solid #1e293b; padding-top: 24px; text-align: center; font-size: 13px; color: #64748b;">
                 &copy; 2026 CIDAK AUTO PARTS LTD. All Rights Reserved. Designed for International Wholesalers &amp; Distributors.
             </div>
         </div>
@@ -368,29 +672,29 @@
     <div id="enquiryModal" class="modal-cidak">
         <div class="modal-content-cidak">
             <span class="close-modal" onclick="closeEnquiryModal()">&times;</span>
-            <div style="margin-bottom: 20px;">
+            <div style="margin-bottom: 24px;">
                 <span class="cidak-badge">B2B Wholesale Inquiry</span>
-                <h3 style="font-size: 24px; font-weight: 900; color: #0f172a; margin-top: 5px;" id="modalSubject">Request CIDAK Product Catalog</h3>
-                <p style="font-size: 13px; color: #64748b;">Fill out your business details to receive wholesale pricing and part catalogs.</p>
+                <h3 style="font-size: 26px; font-weight: 900; color: #0f172a; margin-top: 8px;" id="modalSubject">Request CIDAK Product Catalog</h3>
+                <p style="font-size: 14px; color: #64748b;">Fill out your business details to receive wholesale pricing and part catalogs.</p>
             </div>
             <form onsubmit="handleFormSubmit(event)">
-                <div style="margin-bottom: 15px;">
-                    <label style="display: block; font-size: 12px; font-weight: 700; color: #0f172a; margin-bottom: 5px;">Company Name *</label>
-                    <input type="text" required placeholder="e.g. European Automotive Spares Ltd" style="width: 100%; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px;">
+                <div style="margin-bottom: 16px;">
+                    <label style="display: block; font-size: 13px; font-weight: 700; color: #0f172a; margin-bottom: 6px;">Company Name *</label>
+                    <input type="text" required placeholder="e.g. European Automotive Spares Ltd" style="width: 100%; padding: 12px 16px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px;">
                 </div>
-                <div style="margin-bottom: 15px;">
-                    <label style="display: block; font-size: 12px; font-weight: 700; color: #0f172a; margin-bottom: 5px;">Work Email *</label>
-                    <input type="email" required placeholder="purchasing@company.com" style="width: 100%; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px;">
+                <div style="margin-bottom: 16px;">
+                    <label style="display: block; font-size: 13px; font-weight: 700; color: #0f172a; margin-bottom: 6px;">Work Email *</label>
+                    <input type="email" required placeholder="purchasing@company.com" style="width: 100%; padding: 12px 16px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px;">
                 </div>
-                <div style="margin-bottom: 15px;">
-                    <label style="display: block; font-size: 12px; font-weight: 700; color: #0f172a; margin-bottom: 5px;">Phone / WhatsApp *</label>
-                    <input type="tel" required placeholder="+44 7000 000000" style="width: 100%; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px;">
+                <div style="margin-bottom: 16px;">
+                    <label style="display: block; font-size: 13px; font-weight: 700; color: #0f172a; margin-bottom: 6px;">Phone / WhatsApp *</label>
+                    <input type="tel" required placeholder="+44 7000 000000" style="width: 100%; padding: 12px 16px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px;">
                 </div>
-                <div style="margin-bottom: 20px;">
-                    <label style="display: block; font-size: 12px; font-weight: 700; color: #0f172a; margin-bottom: 5px;">Message / Part Inquiry</label>
-                    <textarea rows="3" placeholder="Specify required part numbers, target volume, or warehouse destination..." style="width: 100%; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px;"></textarea>
+                <div style="margin-bottom: 24px;">
+                    <label style="display: block; font-size: 13px; font-weight: 700; color: #0f172a; margin-bottom: 6px;">Message / Part Inquiry</label>
+                    <textarea rows="3" placeholder="Specify required part numbers, target volume, or warehouse destination..." style="width: 100%; padding: 12px 16px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px;"></textarea>
                 </div>
-                <button type="submit" class="btn-enquiry" style="width: 100%; text-align: center;">Submit B2B Inquiry</button>
+                <button type="submit" class="btn-enquiry" style="width: 100%; text-align: center; padding: 14px 20px;">Submit B2B Inquiry</button>
             </form>
         </div>
     </div>
@@ -417,7 +721,7 @@
             alert('Thank you for your inquiry! CIDAK commercial team (harvinder@cidakautoparts.com) will contact you within 24 hours.');
             closeEnquiryModal();
         }
-        window.onclick = function(event) {
+        window.onclick = function (event) {
             const modal = document.getElementById('enquiryModal');
             if (event.target == modal) {
                 modal.style.display = 'none';
@@ -425,4 +729,5 @@
         }
     </script>
 </body>
+
 </html>
